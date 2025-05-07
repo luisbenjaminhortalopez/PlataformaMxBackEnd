@@ -295,7 +295,7 @@ exports.obtenerNoticias = async (req, res) => {
     try {
         connection = await pool.getConnection();
 
-        const query = `SELECT id, imagen_portada, titulo FROM Noticias`;
+        const query = `SELECT id, imagen_portada, titulo, fecha_publicacion, fecha_vencimiento FROM Noticias;`;
         const [rows] = await connection.query(query);
 
         if (rows.length === 0) {
