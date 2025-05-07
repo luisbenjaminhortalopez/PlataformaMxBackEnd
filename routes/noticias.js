@@ -6,6 +6,8 @@ router.get('/obtener-noticias', noticias.obtenerNoticias);
 
 router.get('/obtener-detalle-noticia/:id', noticias.obtenerDetalleNoticia);
 
+router.get('/obtener-categorias', noticias.obtenerCategorias);
+
 router.post('/agregar-noticia', noticias.agregarNoticia);
 
 router.put('/actualizar-noticia/:id', noticias.actualizarNoticia);

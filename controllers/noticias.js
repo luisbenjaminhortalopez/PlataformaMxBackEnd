@@ -335,3 +335,26 @@ exports.obtenerDetalleNoticia = async (req, res) => {
         if (connection) connection.release();
     }
 }
+
+exports.obtenerCategorias = async (req, res) => {
+    const pool = await dbConnection();
+    let connection;
+
+    try {
+        connection = await pool.getConnection();
+
+        const query = `SELECT id, categoria FROM Categoria`;
+        const [rows] = await connection.query(query);
+
+        if (rows.length === 0) {
+            return res.status(404).json({error: "No se encontraron categorias"});
+        }
+
+        res.json(rows);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({error: "Error al obtener las categorias"});
+    } finally {
+        if (connection) connection.release();
+    }
+}
