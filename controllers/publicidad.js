@@ -173,7 +173,10 @@ exports.actualizarPublicidad = async (req, res) => {
                 return res.status(404).json({error: "Publicidad no encontrada"});
             }
 
-            res.json({mensaje: "Publicidad actualizada exitosamente"});
+            res.json({
+                mensaje: "Publicidad actualizada exitosamente",
+                imagenUrl: imagenUrl || null, // Retorna la URL de la imagen si fue actualizada
+            });
         } catch (error) {
             console.error(error);
             res.status(500).json({error: "Error al actualizar la publicidad"});
