@@ -25,7 +25,7 @@ exports.agregarNoticia = async (req, res) => {
 
         const {titulo, autor, fecha_publicacion, fecha_vencimiento, categoria_id, seccion01, seccion02} = req.body;
 
-        if (!titulo || !autor || !fecha_vencimiento || !categoria_id || !seccion01) {
+        if (!titulo || !autor || !categoria_id || !seccion01) {
             return res.status(400).json({error: "Faltan campos obligatorios"});
         }
 
